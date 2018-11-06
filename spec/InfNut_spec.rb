@@ -36,6 +36,12 @@ RSpec.describe InfNut do
 		expect(@info.calculoGrasaSaturada).to eq(0)
 	end
 
+	it "Calculo de hidratos de los cuales azucares"
+		expect(@info.calculoHidratos).to eq(34.98)
+		expect(@info.calculoAzucar).to eq(34.98)
+	end
+		
+
 end
 
 
