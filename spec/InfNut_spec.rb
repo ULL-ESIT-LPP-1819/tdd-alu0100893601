@@ -31,6 +31,11 @@ RSpec.describe InfNut do
 		expect(@info.calculokCal).to eq(138.6)
 	end
 
+	it "Calculo de grasas" do
+		expect(@info.calculoGrasa).to eq(0)
+		expect(@info.calculoGrasaSaturada).to eq(0)
+	end
+
 end
 
 
