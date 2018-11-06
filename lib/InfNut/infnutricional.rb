@@ -22,5 +22,12 @@ class InformacionNutricional
 		@valorenergetico[1]*porciones
 	end
 
+	def calculoGrasa
+		@grasa*porciones
+	end
+
+	def calculoGrasaSaturada
+		@grasasaturada*porciones
+	end
 
 end
