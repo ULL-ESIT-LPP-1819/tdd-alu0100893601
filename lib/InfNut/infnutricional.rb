@@ -38,4 +38,12 @@ class InformacionNutricional
 		@azucar*porciones
 	end
 
+	def calculoProteinas
+		@proteinas*porciones
+	end
+
+	def calculoSal
+		@sal*porciones
+	end
+
 end
