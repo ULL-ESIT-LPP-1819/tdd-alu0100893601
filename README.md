@@ -1,8 +1,12 @@
 # InfNut
 
+Author: Sergio Delgado Lopez (alu0100893601@ull.edu.es)
+
+Description: Lenguajes y Paradigmas de Programacion, Practica 6
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/InfNut`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+My gem will work with nutritional information
 
 ## Installation
 
@@ -22,7 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use information
 
 ## Development
 
@@ -32,4 +36,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/InfNut.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alu0100893601/InfNut.
