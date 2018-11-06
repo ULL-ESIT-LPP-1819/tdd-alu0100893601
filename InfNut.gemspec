@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sergio Delgado"]
   spec.email         = ["alu0100893601@ull.edu.es"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{La gema es para la practica sobre la que vamos a trabajar con la Informacion Nutricional.}
+  spec.description   = %q{Esta descripcion es mas larga ahora.}
+  spec.homepage      = "https://github.com/alu0100893601/practica6_LPP_TDD"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

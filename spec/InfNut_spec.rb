@@ -1,9 +1,19 @@
 RSpec.describe InfNut do
-  it "has a version number" do
-    expect(InfNut::VERSION).not_to be nil
-  end
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+	#Codigo para la pruebas de TDD
+
+  	it "Tiene un numero de version" do
+    		expect(InfNut::VERSION).not_to be nil
+  	end
+
+	before :each do
+		@info = InformacionNutricional.new() 
+	end
+
+	#it "Tiene un constructor" do
+		
+	#end
+
 end
+
+
