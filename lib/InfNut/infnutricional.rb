@@ -30,4 +30,12 @@ class InformacionNutricional
 		@grasasaturada*porciones
 	end
 
+	def calculoHidratos
+		@hidratos*porciones
+	end
+
+	def calculoAzucar
+		@azucar*porciones
+	end
+
 end
