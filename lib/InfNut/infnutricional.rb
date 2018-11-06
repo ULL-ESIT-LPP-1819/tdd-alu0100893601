@@ -14,4 +14,13 @@ class InformacionNutricional
 		@sal = salt
 	end
 
+	def calculokJ 
+		@valorenergetico[0]*porciones
+	end
+
+	def calculokCal 
+		@valorenergetico[1]*porciones
+	end
+
+
 end
