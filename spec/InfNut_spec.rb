@@ -26,6 +26,11 @@ RSpec.describe InfNut do
 		expect(@info.sal).to eq(0)					
 	end
 
+	it "Calculo de valor energetico" do
+		expect(@info.calculokJ).to eq(594)
+		expect(@info.calculokCal).to eq(138.6)
+	end
+
 end
 
 
