@@ -40,7 +40,14 @@ RSpec.describe InfNut do
 		expect(@info.calculoHidratos).to eq(34.98)
 		expect(@info.calculoAzucar).to eq(34.98)
 	end
-		
+
+	it "Calcuo de las proteinas" do
+		expect(@info.calculoProteinas).to eq(0)
+	end
+
+	it "Calculo de sal" do
+		expect(@info.calculoSal).to eq(0)
+	end	
 
 end
 
