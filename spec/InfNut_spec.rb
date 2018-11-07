@@ -53,4 +53,8 @@ RSpec.describe InfNut do
 		expect(@info.calculoIR).to eq([[7.07, 6.93], 0, 0, 13.45, 38.87, 0, 0])
 	end
 
+	it "Mostrar proporciones" do
+		expect(@info.to_s).to eq("[[7.07, 6.93], 0.0, 0.0, 13.45, 38.87, 0.0, 0.0]")
+	end
+
 end

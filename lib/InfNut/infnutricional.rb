@@ -77,8 +77,11 @@ class InformacionNutricional
 		aux = aux.round(2)
 		vectoraux.push(aux)
 
-		vectoraux.to_s
 		vectoraux
+	end
+
+	def to_s
+		calculoIR.to_s
 	end
 
 end
