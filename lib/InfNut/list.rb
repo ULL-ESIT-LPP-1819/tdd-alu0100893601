@@ -56,4 +56,18 @@ class List
 		@head
 	end
 
+	def insertarTail (nodito)
+		if(nodito.is_a?Struct::Nodo)
+			nodito.ant = nil
+			nodito.sig = @tail
+			@tail.ant = nodito
+			@tail = nodito
+			@size = @size + 1
+		end
+	end
+
+	def verTail
+		@tail
+	end
+
 end
