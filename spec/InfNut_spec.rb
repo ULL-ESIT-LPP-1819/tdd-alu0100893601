@@ -69,4 +69,13 @@ RSpec.describe InfNut do
 		expect(@lista.actual).not_to be(nil)	
 	end
 
+	it "Tiene un constructor por parametro la lista" do
+		nodo_aux = Struct::Nodo.new(InformacionNutricional.new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0), nil, nil) 
+		lista2 = List.new(nodo_aux)
+		expect(lista2).to be_kind_of(List)
+		expect(lista2.head).not_to be(nil)
+		expect(lista2.tail).not_to be(nil)
+		expect(lista2.actual).not_to be(nil)	
+	end
+
 end
