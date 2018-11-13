@@ -6,10 +6,21 @@ class List
 
 	attr_accessor :head, :tail, :actual
 
-	def initialize ()
-		@head = Struct::Nodo.new(InformacionNutricional.new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0), nil, nil)
-		@tail = @head
-		@actual = @head
+	def initialize (nodito)
+		if (nodito.nil?)
+			etiq_aux = InformacionNutricional.new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0)
+			@head = Struct::Nodo.new(etiq_aux, nil, nil)
+			@tail = @head
+			@actual = @head
+		elsif(nodito.is_a?Struct::Nodo)
+			@head = nodito
+			@tail = nodito
+			@actual = nodito
+		elsif (nodito.is_a?InformacionNutricional)
+			@head = Struct::Nodo.new(nodito ,nil, nil)
+			@tail = @head
+			@actual = @head
+		end
 	end
 
 end
