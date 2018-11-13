@@ -118,4 +118,8 @@ RSpec.describe InfNut do
 		expect(@lista.borrarTail).to eq(nodo_aux)
 	end
 
+	it "La clase List tiene un metodo para formatear la salida" do	
+		expect(@lista.to_s).to eq("Pinia en conserva")
+	end
+
 end

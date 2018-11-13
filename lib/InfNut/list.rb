@@ -86,4 +86,20 @@ class List
 		@tail
 	end
 
+	def to_s
+		os = ""
+		if(@size==1)
+			os += @head.dato.nombre
+		elsif (@size > 1)
+			i = 0
+			nodo_actual = @head
+			while i < @size
+				os += nodo_actual.dato.nombre + ", "
+				nodo_actual = nodo_actual.sig
+				i += 1
+			end
+		end
+		os
+	end
+
 end
