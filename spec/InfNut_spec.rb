@@ -112,4 +112,10 @@ RSpec.describe InfNut do
 		expect(@lista.size).not_to be(0)
 	end
 
+	it "La clase List puede borrar por el final" do
+		nodo_aux = @lista.verTail;
+
+		expect(@lista.borrarTail).to eq(nodo_aux)
+	end
+
 end
