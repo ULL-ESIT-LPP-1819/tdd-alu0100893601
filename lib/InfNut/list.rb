@@ -23,4 +23,17 @@ class List
 		end
 	end
 
+	def insertarHead (nodito)
+		if(nodito.is_a?Struct::Nodo)
+			nodito.prev = nil
+			nodito.sig = @head
+			@head.prev = nodito
+			@head = nodito
+		end
+	end
+
+	def verHead
+		@head
+	end
+
 end
