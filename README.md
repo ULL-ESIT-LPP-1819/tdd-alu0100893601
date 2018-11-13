@@ -2,7 +2,7 @@
 
 Author: Sergio Delgado Lopez (alu0100893601@ull.edu.es)
 
-Description: Lenguajes y Paradigmas de Programacion, Practica 6
+Description: Lenguajes y Paradigmas de Programacion, Practica 6 y 7 (Lista doblemente enlazada)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/InfNut`. To experiment with that code, run `bin/console` for an interactive prompt.
 
