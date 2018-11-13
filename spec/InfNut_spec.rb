@@ -98,10 +98,18 @@ RSpec.describe InfNut do
 	end
 
 	it "La clase List puede borrar por el principio" do
-
 		nodo_aux = @lista.verHead;
 
 		expect(@lista.borrarHead).to eq(nodo_aux)
+	end
+
+	it "La clase List puede insertar por el final" do
+		etiqueta = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
+		nodo_aux = Struct::Nodo.new(etiqueta, nil, nil)
+
+		@lista.insertarTail(nodo_aux)
+		expect(@lista.verTail).to eq(nodo_aux)
+		expect(@lista.size).not_to be(0)
 	end
 
 end
