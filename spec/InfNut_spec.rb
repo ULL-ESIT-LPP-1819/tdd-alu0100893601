@@ -12,6 +12,7 @@ RSpec.describe InfNut do
 
 	before :each do
 		@cocacola = InformacionNutricional.new("CocaCola", 3.3, [180, 42], 0, 0, 10.6, 10.6, 0, 0) 
+		@lista = List.new()
 	end
 
 	it "Tiene un constructor" do
@@ -61,15 +62,11 @@ RSpec.describe InfNut do
 	#Continuacion en la practica
 	#new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0)
 
-	before :each do
-		@lista = List.new()
-	end
-
 	it "Tiene un constructor la lista" do
 		expect(@lista).to be_kind_of(List)
-		expect(@lista.head).should_not be_a(nil)
-		expect(@lista.tail).should_not be_a(nil)
-		expect(@lista.actual).should_not be_a(nil)	
+		expect(@lista.head).not_to be(nil)
+		expect(@lista.tail).not_to be(nil)
+		expect(@lista.actual).not_to be(nil)	
 	end
 
 end
