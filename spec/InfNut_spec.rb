@@ -68,19 +68,26 @@ RSpec.describe InfNut do
 		expect(@lista.actual).not_to be(nil)	
 	end
 
-	it "Tiene un constructor por parametro la lista" do
+	it "Tiene un constructor por parametro la lista" do		
 		etiqueta = InformacionNutricional.new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0)
 		nodo_aux = Struct::Nodo.new(etiqueta, nil, nil) 
 		lista2 = List.new(nodo_aux)
 		expect(lista2).to be_kind_of(List)
 		expect(lista2.head).not_to be(nil)
 		expect(lista2.tail).not_to be(nil)
-		expect(lista2.actual).not_to be(nil)	
+		expect(lista2.actual).not_to be(nil)
 		lista2 = List.new(etiqueta)
 		expect(lista2).to be_kind_of(List)
 		expect(lista2.head).not_to be(nil)
 		expect(lista2.tail).not_to be(nil)
 		expect(lista2.actual).not_to be(nil)
+	end
+
+	it "La clase List puede insertar por el principio" do
+		etiqueta = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
+		nodo_aux = Struct::Nodo.new(etiqueta, nil, nil) 
+		@lista.insertarHead(nodo_aux)
+		expect(@lista.verHead).to eq(nodo_aux)
 	end
 
 end
