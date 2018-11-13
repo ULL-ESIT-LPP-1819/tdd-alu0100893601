@@ -94,7 +94,11 @@ class List
 			i = 0
 			nodo_actual = @head
 			while i < @size
-				os += nodo_actual.dato.nombre + ", "
+				if (i == (@size-1))
+					os += nodo_actual.dato.nombre + "."
+				else
+					os += nodo_actual.dato.nombre + ", "
+				end
 				nodo_actual = nodo_actual.sig
 				i += 1
 			end

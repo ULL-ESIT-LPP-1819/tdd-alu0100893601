@@ -120,6 +120,16 @@ RSpec.describe InfNut do
 
 	it "La clase List tiene un metodo para formatear la salida" do	
 		expect(@lista.to_s).to eq("Pinia en conserva")
+
+		etiqueta1 = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
+		etiqueta2 = InformacionNutricional.new("Salchichas enlatadas", 1.25, [755.0, ], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+
+		nodo_aux = Struct::Nodo.new(etiqueta1, nil, nil)
+		@lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(etiqueta2, nil, nil)
+		@lista.insertarHead(nodo_aux)
+
+		expect(@lista.to_s).to eq("Salchichas enlatadas, CocaCola, Pinia en conserva.")
 	end
 
 end
