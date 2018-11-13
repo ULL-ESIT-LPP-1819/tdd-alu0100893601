@@ -1,5 +1,6 @@
 require "spec_helper"
-require_relative "../lib/InfNut/infnutricional.rb"
+#require_relative "../lib/InfNut/infnutricional.rb"
+require_relative "../lib/InfNut/list.rb"
 
 RSpec.describe InfNut do
 
@@ -10,51 +11,65 @@ RSpec.describe InfNut do
   	end
 
 	before :each do
-		@info = InformacionNutricional.new("CocaCola", 3.3, [180, 42], 0, 0, 10.6, 10.6, 0, 0) 
+		@cocacola = InformacionNutricional.new("CocaCola", 3.3, [180, 42], 0, 0, 10.6, 10.6, 0, 0) 
 	end
 
 	it "Tiene un constructor" do
-		expect(@info.nombre).to eq("CocaCola")
-		expect(@info.porciones).to eq(3.3)
-		expect(@info.valorenergetico[0]).to eq(180)
-		expect(@info.valorenergetico[1]).to eq(42)
-		expect(@info.grasa).to eq(0)
-		expect(@info.grasasaturada).to eq(0)
-		expect(@info.hidratos).to eq(10.6)
-		expect(@info.azucar).to eq(10.6)
-		expect(@info.proteinas).to eq(0)
-		expect(@info.sal).to eq(0)					
+		expect(@cocacola.nombre).to eq("CocaCola")
+		expect(@cocacola.porciones).to eq(3.3)
+		expect(@cocacola.valorenergetico[0]).to eq(180)
+		expect(@cocacola.valorenergetico[1]).to eq(42)
+		expect(@cocacola.grasa).to eq(0)
+		expect(@cocacola.grasasaturada).to eq(0)
+		expect(@cocacola.hidratos).to eq(10.6)
+		expect(@cocacola.azucar).to eq(10.6)
+		expect(@cocacola.proteinas).to eq(0)
+		expect(@cocacola.sal).to eq(0)					
 	end
 
 	it "Calculo de valor energetico" do
-		expect(@info.calculokJ).to eq(594)
-		expect(@info.calculokCal).to eq(138.6)
+		expect(@cocacola.calculokJ).to eq(594)
+		expect(@cocacola.calculokCal).to eq(138.6)
 	end
 
 	it "Calculo de grasas" do
-		expect(@info.calculoGrasa).to eq(0)
-		expect(@info.calculoGrasaSaturada).to eq(0)
+		expect(@cocacola.calculoGrasa).to eq(0)
+		expect(@cocacola.calculoGrasaSaturada).to eq(0)
 	end
 
 	it "Calculo de hidratos de los cuales azucares" do
-		expect(@info.calculoHidratos).to eq(34.98)
-		expect(@info.calculoAzucar).to eq(34.98)
+		expect(@cocacola.calculoHidratos).to eq(34.98)
+		expect(@cocacola.calculoAzucar).to eq(34.98)
 	end
 
 	it "Calcuo de las proteinas" do
-		expect(@info.calculoProteinas).to eq(0)
+		expect(@cocacola.calculoProteinas).to eq(0)
 	end
 
 	it "Calculo de sal" do
-		expect(@info.calculoSal).to eq(0)
+		expect(@cocacola.calculoSal).to eq(0)
 	end	
 
 	it "Calculo de proporciones" do
-		expect(@info.calculoIR).to eq([[7.07, 6.93], 0, 0, 13.45, 38.87, 0, 0])
+		expect(@cocacola.calculoIR).to eq([[7.07, 6.93], 0, 0, 13.45, 38.87, 0, 0])
 	end
 
 	it "Mostrar proporciones" do
-		expect(@info.to_s).to eq("[[7.07, 6.93], 0.0, 0.0, 13.45, 38.87, 0.0, 0.0]")
+		expect(@cocacola.to_s).to eq("[[7.07, 6.93], 0.0, 0.0, 13.45, 38.87, 0.0, 0.0]")
+	end
+
+	#Continuacion en la practica
+	#new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0)
+
+	before :each do
+		@lista = List.new()
+	end
+
+	it "Tiene un constructor la lista" do
+		expect(@lista).to be_kind_of(List)
+		expect(@lista.head).should_not be_a(nil)
+		expect(@lista.tail).should_not be_a(nil)
+		expect(@lista.actual).should_not be_a(nil)	
 	end
 
 end
