@@ -66,6 +66,22 @@ class List
 		end
 	end
 
+	def borrarTail
+		nodito = @tail
+		if(@size > 1)
+			@tail = nodito.sig
+			@tail.ant = Struct::Nodo.new(nil, nil, nil)
+			@size = @size - 1
+		elsif(@size==1)
+			@tail = Struct::Nodo.new(nil, nil, nil)
+			@head = @tail
+			@actual = @tail
+		else
+			puts "Lista vacia"
+		end
+		nodito
+	end
+
 	def verTail
 		@tail
 	end
