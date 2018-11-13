@@ -65,7 +65,8 @@ RSpec.describe InfNut do
 		expect(@lista).to be_kind_of(List)
 		expect(@lista.head).not_to be(nil)
 		expect(@lista.tail).not_to be(nil)
-		expect(@lista.actual).not_to be(nil)	
+		expect(@lista.actual).not_to be(nil)
+		expect(@lista.size).not_to be(nil)	
 	end
 
 	it "Tiene un constructor por parametro la lista" do		
@@ -77,12 +78,14 @@ RSpec.describe InfNut do
 		expect(lista2.head).not_to be(nil)
 		expect(lista2.tail).not_to be(nil)
 		expect(lista2.actual).not_to be(nil)
+		expect(lista2.size).not_to be(nil)
 
 		lista2 = List.new(etiqueta)
 		expect(lista2).to be_kind_of(List)
 		expect(lista2.head).not_to be(nil)
 		expect(lista2.tail).not_to be(nil)
 		expect(lista2.actual).not_to be(nil)
+		expect(lista2.size).not_to be(nil)
 	end
 
 	it "La clase List puede insertar por el principio" do
@@ -91,13 +94,14 @@ RSpec.describe InfNut do
 
 		@lista.insertarHead(nodo_aux)
 		expect(@lista.verHead).to eq(nodo_aux)
+		expect(@lista.size).not_to be(0)
 	end
 
 	it "La clase List puede borrar por el principio" do
+
 		nodo_aux = @lista.verHead;
 
 		expect(@lista.borrarHead).to eq(nodo_aux)
-		expect(@lista.verHead).not_to be(nodo_aux) 
 	end
 
 end

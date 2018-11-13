@@ -1,10 +1,10 @@
 require_relative "infnutricional.rb"
 
-Struct.new("Nodo", :dato, :sig, :prev)
+Struct.new("Nodo", :dato, :sig, :ant)
 
 class List
 
-	attr_accessor :head, :tail, :actual
+	attr_accessor :head, :tail, :actual, :size
 
 	def initialize (nodito)
 		if (nodito.nil?)
@@ -12,24 +12,44 @@ class List
 			@head = Struct::Nodo.new(etiq_aux, nil, nil)
 			@tail = @head
 			@actual = @head
+			@size = 1
 		elsif(nodito.is_a?Struct::Nodo)
 			@head = nodito
 			@tail = nodito
 			@actual = nodito
+			@size = 1
 		elsif (nodito.is_a?InformacionNutricional)
 			@head = Struct::Nodo.new(nodito ,nil, nil)
 			@tail = @head
 			@actual = @head
+			@size = 1
 		end
 	end
 
 	def insertarHead (nodito)
 		if(nodito.is_a?Struct::Nodo)
-			nodito.prev = nil
+			nodito.ant = nil
 			nodito.sig = @head
-			@head.prev = nodito
+			@head.ant = nodito
 			@head = nodito
+			@size = @size + 1
 		end
+	end
+
+	def borrarHead
+		nodito = @head
+		if(@size > 1)
+			@head = nodito.sig
+			@head.ant = Struct::Nodo.new(nil, nil, nil)
+			@size = @size - 1
+		elsif(@size==1)
+			@head = Struct::Nodo.new(nil, nil, nil)
+			@tail = @head
+			@actual = @head
+		else
+			puts "Lista vacia"
+		end
+		nodito
 	end
 
 	def verHead
