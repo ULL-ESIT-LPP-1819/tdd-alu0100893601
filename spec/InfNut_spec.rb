@@ -96,6 +96,11 @@ RSpec.describe "Pruebas de la lista" do
 		expect(lista2.size).not_to be(nil)
 	end
 
+	it "La lista esta vacia" do
+		expect(@lista.verHead).to eq(nil)
+		expect(@lista.verTail).to eq(nil)
+	end
+
 	it "La clase List puede insertar por el principio" do
 		etiqueta = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
 		nodo_aux = Struct::Nodo.new(etiqueta, nil, nil)
