@@ -2,7 +2,7 @@ require "spec_helper"
 #require_relative "../lib/InfNut/infnutricional.rb"
 require_relative "../lib/InfNut/list.rb"
 
-RSpec.describe InfNut do
+RSpec.describe "Etiquetas de información nutricional" do
 
 	#Codigo para la pruebas de TDD
 
@@ -59,7 +59,15 @@ RSpec.describe InfNut do
 		expect(@cocacola.to_s).to eq("[[7.07, 6.93], 0.0, 0.0, 13.45, 38.87, 0.0, 0.0]")
 	end
 
+end
+
+RSpec.describe "Pruebas de la lista" do
+
 	#Continuacion en la practica
+
+	before :each do
+		@lista = List.new(nil)
+	end
 
 	it "Tiene un constructor la lista" do
 		expect(@lista).to be_kind_of(List)
