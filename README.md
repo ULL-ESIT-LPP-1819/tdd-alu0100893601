@@ -1,4 +1,4 @@
-# InfNut
+# Prac 6 y 7: Lista doble-enlazada de Etiquetas InfNut
 
 Author: Sergio Delgado Lopez (alu0100893601@ull.edu.es)
 
