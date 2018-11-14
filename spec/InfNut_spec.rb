@@ -119,17 +119,43 @@ RSpec.describe InfNut do
 	end
 
 	it "La clase List tiene un metodo para formatear la salida" do	
-		expect(@lista.to_s).to eq("Pinia en conserva")
 
 		etiqueta1 = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
-		etiqueta2 = InformacionNutricional.new("Salchichas enlatadas", 1.25, [755.0, ], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+		etiqueta2 = InformacionNutricional.new("Salchichas enlatadas", 1.25, [755.0, 181.0], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+		etiqueta3 = InformacionNutricional.new("Millo", 1.25, [755.0, ], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+		etiqueta4 = InformacionNutricional.new("Boloniesa", 3.0, [642.0, 154.0], 10.0, 1.9, 11.4, 9.6, 3.8, 1.4)
 
 		nodo_aux = Struct::Nodo.new(etiqueta1, nil, nil)
 		@lista.insertarHead(nodo_aux)
 		nodo_aux = Struct::Nodo.new(etiqueta2, nil, nil)
 		@lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(etiqueta3, nil, nil)
+		@lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(etiqueta4, nil, nil)
+		@lista.insertarHead(nodo_aux)
 
-		expect(@lista.to_s).to eq("Salchichas enlatadas, CocaCola, Pinia en conserva.")
+		expect(@lista.to_s).to eq("Boloniesa, Millo, Salchichas enlatadas, CocaCola, Pinia en conserva.")
+	end
+
+	it "La clase List es capaz de ordenar por cantidad de SAL" do
+
+		etiqueta1 = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
+		etiqueta2 = InformacionNutricional.new("Salchichas enlatadas", 1.25, [755.0, 181.0], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+		etiqueta3 = InformacionNutricional.new("Millo", 1.25, [755.0, ], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+		etiqueta4 = InformacionNutricional.new("Boloniesa", 3.0, [642.0, 154.0], 10.0, 1.9, 11.4, 9.6, 3.8, 1.4)
+
+		nodo_aux = Struct::Nodo.new(etiqueta1, nil, nil)
+		@lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(etiqueta2, nil, nil)
+		@lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(etiqueta3, nil, nil)
+		@lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(etiqueta4, nil, nil)
+		@lista.insertarHead(nodo_aux)
+
+		puts @lista.ordenarPorSal.to_s
+		expect(@lista.ordenarPorSal.to_s).to eq("[[\"CocaCola\", 0.0], [\"Pinia en conserva\", 0.01], [\"Boloniesa\", 1.4], [\"Millo\", 2.2], [\"Salchichas enlatadas\", 2.2]]")
+
 	end
 
 end

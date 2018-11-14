@@ -8,7 +8,7 @@ class List
 
 	def initialize (nodito)
 		if (nodito.nil?)
-			etiq_aux = InformacionNutricional.new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 0.01, 2.0)
+			etiq_aux = InformacionNutricional.new("Pinia en conserva", 0.5, [382.55, 90.16], 0.0, 12.0, 8.9, 0.5, 2.0, 0.01)
 			@head = Struct::Nodo.new(etiq_aux, nil, nil)
 			@tail = @head
 			@actual = @head
@@ -28,11 +28,17 @@ class List
 
 	def insertarHead (nodito)
 		if(nodito.is_a?Struct::Nodo)
-			nodito.ant = nil
-			nodito.sig = @head
-			@head.ant = nodito
-			@head = nodito
-			@size = @size + 1
+			if (@size == 0)
+				@head = nodito
+				@size = @size + 1
+				@tail = @head
+			else
+				nodito.ant = Struct::Nodo.new(nil, nil, nil)
+				nodito.sig = @head
+				@head.ant = nodito
+				@head = nodito
+				@size = @size + 1
+			end
 		end
 	end
 
@@ -58,11 +64,17 @@ class List
 
 	def insertarTail (nodito)
 		if(nodito.is_a?Struct::Nodo)
-			nodito.ant = nil
-			nodito.sig = @tail
-			@tail.ant = nodito
-			@tail = nodito
-			@size = @size + 1
+			if (@size == 0)
+				@tail = nodito
+				@size = @size + 1
+				@head = @tail;
+			else
+				nodito.ant = Struct::Nodo.new(nil, nil, nil)
+				nodito.sig = @tail
+				@tail.ant = nodito
+				@tail = nodito
+				@size = @size + 1
+			end
 		end
 	end
 
@@ -82,6 +94,25 @@ class List
 		nodito
 	end
 
+	def borrarDentro (inx)
+		nodo_actual = @head
+		fin = false
+		while (i < @size)&&(!fin)
+			if (i == inx)
+				nodo_actual.prev.sig = nodo_actual.sig;
+				nodo_actual.sig.prev = nodo_actual.prev;
+				nodo_actual.ant = Struct::Nodo.new(nil, nil, nil)
+				nodo_actual.sig = Struct::Nodo.new(nil, nil, nil)
+				fin = true
+			end
+			if (!nodo_actual.sig.nil?)
+				nodo_actual = nodo_actual.sig
+			end
+			i += 1
+		end
+		nodo_actual
+	end
+
 	def verTail
 		@tail
 	end
@@ -95,15 +126,58 @@ class List
 			nodo_actual = @head
 			while i < @size
 				if (i == (@size-1))
-					os += nodo_actual.dato.nombre + "."
+					if (!nodo_actual.nil?)
+						os += nodo_actual.dato.nombre + "."
+					end
 				else
-					os += nodo_actual.dato.nombre + ", "
+					if (!nodo_actual.nil?)
+						os += nodo_actual.dato.nombre + ", "
+					end
 				end
-				nodo_actual = nodo_actual.sig
+				if (!nodo_actual.sig.nil?)
+					nodo_actual = nodo_actual.sig
+				end
 				i += 1
 			end
 		end
 		os
+	end
+
+	def ordenarPorSal
+		i = 0
+		vector_aux = []
+		vector_resultado = []
+		nodo_actual = @head
+
+		while i < @size
+			vector_aux.push([nodo_actual.dato.nombre, nodo_actual.dato.sal])
+			if (!nodo_actual.sig.nil?)	
+				nodo_actual = nodo_actual.sig
+			end
+			i += 1
+		end	
+
+		cant_sal = 1000
+
+		while vector_aux.length != 0
+			cant_sal = 1000
+			inx = 0
+			i = 0
+			while i < vector_aux.length
+				if (cant_sal > vector_aux[i][1])
+					inx = i
+					cant_sal = vector_aux[i][1]
+				end	
+				i += 1
+			end	
+
+			vector_resultado.push(vector_aux[inx])
+			vector_aux.delete_at(inx)
+
+		end
+
+		vector_resultado
+
 	end
 
 end
