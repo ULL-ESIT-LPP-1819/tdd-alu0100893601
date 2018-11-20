@@ -177,6 +177,9 @@ end
 RSpec.describe "Pruebas para la parte de herencia" do
 
 	before :each do
+
+		@valNut = ValoracionNutricional.new("ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
+
 		@paciente1 = Paciente.new(55555555, "11111111111", true, false, "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
 		@paciente2 = Paciente.new(66666666, "22222222222", false, false, "PedroLuis", 35, "masculino", 65, 1.70, [[37.5, 37.1], [87.3, 88.6], [96.5, 96.6]], [[23, 25, 23], [12, 14, 13], [9, 10, 9], [39, 38, 37]])
 		@paciente3 = Paciente.new(77777777, "33333333333", true, false, "RaulHdez", 40, "masculino", 70, 1.72, [[39.5, 39.1], [89.3, 90.6], [98.5, 98.6]], [[25, 27, 25], [14, 16, 15], [11, 12, 11], [41, 40, 39]])
@@ -190,6 +193,17 @@ RSpec.describe "Pruebas para la parte de herencia" do
 		expect(@paciente1.nsegsocial).not_to be(nil)
 		expect(@paciente1.consulta).not_to be(nil)
 		expect(@paciente1.trataobesidad).not_to be(nil)
+	end
+
+	it "Comprobacion de clases" do
+		#puts @paciente1.class
+		#puts @valNut.class
+		#puts Object.class
+		#puts BasicObject.class
+		expect(@paciente1.class).to be(Paciente)
+		expect(@valNut.class).to be(ValoracionNutricional)
+		expect(Object.class).to be(Class)
+		expect(BasicObject.class).to be(Class)
 	end
 
 end
