@@ -215,4 +215,15 @@ RSpec.describe "Pruebas para la parte de herencia" do
 		expect(Paciente.superclass.superclass.superclass).to be(BasicObject)
 	end
 
+	it "Comprobación de la jerarquia" do
+		#puts @paciente1.is_a?Paciente
+		#puts @paciente1.is_a?ValoracionNutricional
+		#puts @paciente1.is_a?Object
+		#puts @paciente1.is_a?BasicObject
+		expect(@paciente1).to be_kind_of(Paciente)
+		expect(@paciente1).to be_kind_of(ValoracionNutricional)
+		expect(@paciente1).to be_kind_of(Object)
+		expect(@paciente1).to be_kind_of(BasicObject)
+	end
+
 end
