@@ -187,7 +187,7 @@ RSpec.describe "Pruebas para la parte de herencia" do
 		@paciente5 = Paciente.new(99999999, "00000000000", "AdolfoGarcia", 50, "masculino", 80, 1.76, [[42.5, 43.1], [93.3, 94.6], [102.5, 102.6]], [[29, 31, 29], [18, 20, 19], [15, 16, 15], [45, 44, 43]])
 
 		@paraConsulta = Consulta.new(true, 55555555, "11111111111", "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
-
+		@tratarObesidad = TratarObesidad.new(false, 55555555, "11111111111", "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
 	end
 
 	it "La clase PACIENTE tiene constructor" do
@@ -197,6 +197,10 @@ RSpec.describe "Pruebas para la parte de herencia" do
 
 	it "Paciente en consulta" do
 		expect(@paraConsulta.cita).to be(true)
+	end
+
+	it "Paciente para tratar obesidad" do
+		expect(@tratarObesidad.calcularTratoDeObesidad).to eq(false)
 	end
 
 	it "Comprobacion de clases" do
