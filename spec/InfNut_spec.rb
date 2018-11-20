@@ -180,26 +180,32 @@ RSpec.describe "Pruebas para la parte de herencia" do
 
 		@valNut = ValoracionNutricional.new("ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
 
-		@paciente1 = Paciente.new(55555555, "11111111111", true, false, "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
-		@paciente2 = Paciente.new(66666666, "22222222222", false, false, "PedroLuis", 35, "masculino", 65, 1.70, [[37.5, 37.1], [87.3, 88.6], [96.5, 96.6]], [[23, 25, 23], [12, 14, 13], [9, 10, 9], [39, 38, 37]])
-		@paciente3 = Paciente.new(77777777, "33333333333", true, false, "RaulHdez", 40, "masculino", 70, 1.72, [[39.5, 39.1], [89.3, 90.6], [98.5, 98.6]], [[25, 27, 25], [14, 16, 15], [11, 12, 11], [41, 40, 39]])
-		@paciente4 = Paciente.new(88888888, "44444444444", false, false, "LuisLuis", 45, "masculino", 75, 1.74, [[41.5, 41.1], [91.3, 92.6], [100.5, 100.6]], [[27, 29, 27], [16, 18, 17], [13, 14, 13], [43, 42, 41]])
-		@paciente5 = Paciente.new(99999999, "00000000000", false, false, "AdolfoGarcia", 50, "masculino", 80, 1.76, [[42.5, 43.1], [93.3, 94.6], [102.5, 102.6]], [[29, 31, 29], [18, 20, 19], [15, 16, 15], [45, 44, 43]])
+		@paciente1 = Paciente.new(55555555, "11111111111", "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
+		@paciente2 = Paciente.new(66666666, "22222222222", "PedroLuis", 35, "masculino", 65, 1.70, [[37.5, 37.1], [87.3, 88.6], [96.5, 96.6]], [[23, 25, 23], [12, 14, 13], [9, 10, 9], [39, 38, 37]])
+		@paciente3 = Paciente.new(77777777, "33333333333", "RaulHdez", 40, "masculino", 70, 1.72, [[39.5, 39.1], [89.3, 90.6], [98.5, 98.6]], [[25, 27, 25], [14, 16, 15], [11, 12, 11], [41, 40, 39]])
+		@paciente4 = Paciente.new(88888888, "44444444444", "LuisLuis", 45, "masculino", 75, 1.74, [[41.5, 41.1], [91.3, 92.6], [100.5, 100.6]], [[27, 29, 27], [16, 18, 17], [13, 14, 13], [43, 42, 41]])
+		@paciente5 = Paciente.new(99999999, "00000000000", "AdolfoGarcia", 50, "masculino", 80, 1.76, [[42.5, 43.1], [93.3, 94.6], [102.5, 102.6]], [[29, 31, 29], [18, 20, 19], [15, 16, 15], [45, 44, 43]])
+
+		@paraConsulta = Consulta.new(true, 55555555, "11111111111", "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
 
 	end
 
 	it "La clase PACIENTE tiene constructor" do
 		expect(@paciente1.identificacion).not_to be(nil)
 		expect(@paciente1.nsegsocial).not_to be(nil)
-		expect(@paciente1.consulta).not_to be(nil)
-		expect(@paciente1.trataobesidad).not_to be(nil)
+	end
+
+	it "Paciente en consulta" do
+		expect(@paraConsulta.cita).to be(true)
 	end
 
 	it "Comprobacion de clases" do
+		##puts @paraConsulta.class
 		#puts @paciente1.class
 		#puts @valNut.class
 		#puts Object.class
 		#puts BasicObject.class
+		expect(@paraConsulta.class).to be(Consulta)
 		expect(@paciente1.class).to be(Paciente)
 		expect(@valNut.class).to be(ValoracionNutricional)
 		expect(Object.class).to be(Class)
@@ -207,15 +213,23 @@ RSpec.describe "Pruebas para la parte de herencia" do
 	end
 
 	it "Comprobacion de las superclases" do
+		#puts @paraConsulta.superclass
 		#puts Paciente.superclass
 		#puts Paciente.superclass.superclass
 		#puts Paciente.superclass.superclass.superclass
+		expect(Consulta.superclass).to be(Paciente)
 		expect(Paciente.superclass).to be(ValoracionNutricional)
 		expect(Paciente.superclass.superclass).to be(Object)
 		expect(Paciente.superclass.superclass.superclass).to be(BasicObject)
 	end
 
 	it "Comprobación de la jerarquia" do
+		expect(@paraConsulta).to be_kind_of(Consulta)
+		expect(@paraConsulta).to be_kind_of(Paciente)
+		expect(@paraConsulta).to be_kind_of(ValoracionNutricional)
+		expect(@paraConsulta).to be_kind_of(Object)
+		expect(@paraConsulta).to be_kind_of(BasicObject)
+
 		#puts @paciente1.is_a?Paciente
 		#puts @paciente1.is_a?ValoracionNutricional
 		#puts @paciente1.is_a?Object
