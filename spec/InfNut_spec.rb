@@ -206,4 +206,13 @@ RSpec.describe "Pruebas para la parte de herencia" do
 		expect(BasicObject.class).to be(Class)
 	end
 
+	it "Comprobacion de las superclases" do
+		#puts Paciente.superclass
+		#puts Paciente.superclass.superclass
+		#puts Paciente.superclass.superclass.superclass
+		expect(Paciente.superclass).to be(ValoracionNutricional)
+		expect(Paciente.superclass.superclass).to be(Object)
+		expect(Paciente.superclass.superclass.superclass).to be(BasicObject)
+	end
+
 end
