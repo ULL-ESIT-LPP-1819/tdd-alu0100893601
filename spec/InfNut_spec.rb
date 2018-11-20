@@ -1,6 +1,7 @@
 require "spec_helper"
 #require_relative "../lib/InfNut/infnutricional.rb"
 require_relative "../lib/InfNut/list.rb"
+require_relative "../lib/InfNut/paciente.rb"
 
 RSpec.describe "Etiquetas de información nutricional" do
 
