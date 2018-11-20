@@ -96,10 +96,10 @@ RSpec.describe "Pruebas de la lista" do
 		expect(lista2.size).not_to be(nil)
 	end
 
-	it "La lista esta vacia" do
-		expect(@lista.verHead).to eq(nil)
-		expect(@lista.verTail).to eq(nil)
-	end
+	#it "La lista esta vacia" do
+	#	expect(@lista.verHead).to eq(nil)
+	#	expect(@lista.verTail).to eq(nil)
+	#end
 
 	it "La clase List puede insertar por el principio" do
 		etiqueta = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
@@ -169,6 +169,26 @@ RSpec.describe "Pruebas de la lista" do
 		puts @lista.ordenarPorSal.to_s
 		expect(@lista.ordenarPorSal.to_s).to eq("[[\"CocaCola\", 0.0], [\"Pinia en conserva\", 0.01], [\"Boloniesa\", 1.4], [\"Millo\", 2.2], [\"Salchichas enlatadas\", 2.2]]")
 
+	end
+
+end
+
+RSpec.describe "Pruebas para la parte de herencia" do
+
+	before :each do
+		@paciente1 = Paciente.new(55555555, "11111111111", true, false, "ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
+		@paciente2 = Paciente.new(66666666, "22222222222", false, false, "PedroLuis", 35, "masculino", 65, 1.70, [[37.5, 37.1], [87.3, 88.6], [96.5, 96.6]], [[23, 25, 23], [12, 14, 13], [9, 10, 9], [39, 38, 37]])
+		@paciente3 = Paciente.new(77777777, "33333333333", true, false, "RaulHdez", 40, "masculino", 70, 1.72, [[39.5, 39.1], [89.3, 90.6], [98.5, 98.6]], [[25, 27, 25], [14, 16, 15], [11, 12, 11], [41, 40, 39]])
+		@paciente4 = Paciente.new(88888888, "44444444444", false, false, "LuisLuis", 45, "masculino", 75, 1.74, [[41.5, 41.1], [91.3, 92.6], [100.5, 100.6]], [[27, 29, 27], [16, 18, 17], [13, 14, 13], [43, 42, 41]])
+		@paciente5 = Paciente.new(99999999, "00000000000", false, false, "AdolfoGarcia", 50, "masculino", 80, 1.76, [[42.5, 43.1], [93.3, 94.6], [102.5, 102.6]], [[29, 31, 29], [18, 20, 19], [15, 16, 15], [45, 44, 43]])
+
+	end
+
+	it "La clase PACIENTE tiene constructor" do
+		expect(@paciente1.identificacion).not_to be(nil)
+		expect(@paciente1.nsegsocial).not_to be(nil)
+		expect(@paciente1.consulta).not_to be(nil)
+		expect(@paciente1.trataobesidad).not_to be(nil)
 	end
 
 end
