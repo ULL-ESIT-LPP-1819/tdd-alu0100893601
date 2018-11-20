@@ -180,4 +180,42 @@ class List
 
 	end
 
+	def ordenarPorMasaPaciente
+		i = 0
+		vector_aux = []
+		vector_resultado = []
+		nodo_actual = @head
+
+		while i < @size
+			aux_imc = nodo_actual.dato.calcular_imc
+			str_imc = nodo_actual.dato.evaluar_imc
+			vector_aux.push([nodo_actual.dato.nombre, aux_imc, str_imc])
+			if (!nodo_actual.sig.nil?)	
+				nodo_actual = nodo_actual.sig
+			end
+			i += 1
+		end	
+
+		imc = 1000
+
+		while vector_aux.length != 0
+			imc = 1000
+			inx = 0
+			i = 0
+			while i < vector_aux.length
+				if (imc > vector_aux[i][1])
+					inx = i
+					imc = vector_aux[i][1]
+				end	
+				i += 1
+			end	
+
+			vector_resultado.push([vector_aux[inx][0], vector_aux[inx][2]])
+			vector_aux.delete_at(inx)
+
+		end
+		vector_resultado
+
+	end
+
 end

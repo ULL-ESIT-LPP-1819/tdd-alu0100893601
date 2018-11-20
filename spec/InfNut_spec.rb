@@ -244,4 +244,21 @@ RSpec.describe "Pruebas para la parte de herencia" do
 		expect(@paciente1).to be_kind_of(BasicObject)
 	end
 
+	it "Evaluacion de la masa corporal" do
+		nodo_aux = Struct::Nodo.new(@paciente1, nil, nil)
+		@listaMasa = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@paciente2, nil, nil)
+		@listaMasa.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@paciente3, nil, nil)
+		@listaMasa.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@paciente4, nil, nil)
+		@listaMasa.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@paciente5, nil, nil)
+		@listaMasa.insertarHead(nodo_aux)
+
+		puts @listaMasa.ordenarPorMasaPaciente.to_s
+		expect(@listaMasa.ordenarPorMasaPaciente.to_s).to eq("[[\"ManoloGlez\", \"Adecuado\"], [\"PedroLuis\", \"Adecuado\"], [\"RaulHdez\", \"Adecuado\"], [\"LuisLuis\", \"Adecuado\"], [\"AdolfoGarcia\", \"Obesidad 1\"]]")
+
+	end
+
 end
