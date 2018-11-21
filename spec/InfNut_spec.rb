@@ -216,6 +216,11 @@ RSpec.describe "Pruebas para la parte de herencia" do
 		expect(BasicObject.class).to be(Class)
 	end
 
+	it "Comprobacion tipos" do
+		expect(@valNut).to respond_to("calcular_imc")
+		expect(@tratarObesidad).to respond_to("calcularTratoDeObesidad")
+	end
+
 	it "Comprobacion de las superclases" do
 		#puts @paraConsulta.superclass
 		#puts Paciente.superclass
