@@ -268,13 +268,16 @@ RSpec.describe "Pruebas para la parte de herencia" do
 
 end
 
-RSpec.describe "Pruebas de la lista" do
+RSpec.describe "Pruebas de los modulos" do
 
 	before :each do
 		@etiqueta1 = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
 		@etiqueta2 = InformacionNutricional.new("Salchichas enlatadas", 1.25, [755.0, 181.0], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
 		@etiqueta3 = InformacionNutricional.new("Millo", 1.3, [256.0, 61.0], 0.1, 22.0, 2.6, 3.0, 0.53, 1.0)
 		@etiqueta4 = InformacionNutricional.new("Boloniesa", 3.0, [642.0, 154.0], 10.0, 1.9, 11.4, 9.6, 3.8, 1.4)
+		@val1 = ValoracionNutricional.new("ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
+		@val2 = ValoracionNutricional.new("PedroLuis", 35, "masculino", 65, 1.70, [[37.5, 37.1], [87.3, 88.6], [96.5, 96.6]], [[23, 25, 23], [12, 14, 13], [9, 10, 9], [39, 38, 37]])
+		@val3 = ValoracionNutricional.new("RaulHdez", 40, "masculino", 70, 1.72, [[39.5, 39.1], [89.3, 90.6], [98.5, 98.6]], [[25, 27, 25], [14, 16, 15], [11, 12, 11], [41, 40, 39]])
 	end
 
 	it "Uso del modulo Comparable en etiquetas de inf. nutricional" do
@@ -285,6 +288,19 @@ RSpec.describe "Pruebas de la lista" do
 		expect(@etiqueta3>@etiqueta4).to be(false)
 		expect(@etiqueta3>=@etiqueta4).to be(false)
 		expect(@etiqueta2.between?(@etiqueta3, @etiqueta4)).to be(true)
+	end
+
+	it "Uso del modulo Comparable en valoracion nutricional" do
+		puts @val1.calcular_imc
+		puts @val2.calcular_imc
+		puts @val3.calcular_imc
+		expect(@val1<@val2).to be(true)
+		expect(@val1<=@val2).to be(true)
+		expect(@val2==@val2).to be(true)
+		expect(@val2==@val3).to be(false)
+		expect(@val3>@val1).to be(true)
+		expect(@val3>=@val2).to be(true)
+		expect(@val2.between?(@val1, @val3)).to be(true)
 	end
 
 end

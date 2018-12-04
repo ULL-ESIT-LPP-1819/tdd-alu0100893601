@@ -1,6 +1,8 @@
 class ValoracionNutricional
 
-	attr_reader :nombre, :edad, :genero, :peso, :talla
+	include Comparable
+
+	attr_reader :nombre, :edad, :genero, :peso, :talla, :circunferencias, :pliegues
 
 	def initialize (name, age, gender, weight, height, circun, plieg)
 		@nombre = name
@@ -11,6 +13,8 @@ class ValoracionNutricional
 		@circunferencias = circun
 		@pliegues = plieg
 	end
+
+	
 
 	def to_s
 		"Nombre: #{@nombre}, #{@edad}"
@@ -115,7 +119,7 @@ class ValoracionNutricional
 		aux = aux.round(2)
 		@media2.push(aux)
 
-                @media2
+        @media2
 	end
 
 end
