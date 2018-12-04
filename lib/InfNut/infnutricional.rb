@@ -15,6 +15,10 @@ class InformacionNutricional
 		@proteinas = protein
 		@sal = salt
 	end
+	
+	def <=>(other)
+		calculokJ <=> other.calculokJ
+	end 
 
 	def calculokJ 
 		@valorenergetico[0]*porciones
