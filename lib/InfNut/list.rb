@@ -33,7 +33,19 @@ class List
 			@size = 1
 		end
 	end
-	
+
+	def each
+        i = @head
+        f = @size
+        k = 0
+        while (k < f) do
+            yield i.dato
+            i = i.sig
+            k = k+1
+        end
+    end
+
+
 	def insertarHead (nodito)
 		if(nodito.is_a?Struct::Nodo)
 			if (@size == 0)
