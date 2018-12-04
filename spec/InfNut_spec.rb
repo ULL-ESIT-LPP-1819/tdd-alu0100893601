@@ -353,5 +353,50 @@ RSpec.describe "Pruebas de los modulos" do
 		expect(lista.sort).to eq([@etiqueta3, @etiqueta1, @etiqueta2, @etiqueta4])
 	end
 
+		it "Uso del modulo enumerable para lista de valoraciones 1" do
+		nodo_aux = Struct::Nodo.new(@val1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val3, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.collect {|x| x.nombre}).to eq(["RaulHdez", "PedroLuis", "ManoloGlez"])
+	end
+
+	it "Uso del modulo enumerable para lista de valoraciones 2" do
+		nodo_aux = Struct::Nodo.new(@val1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val3, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.select {|x| x.nombre == "PedroLuis"}).to eq([@val2])
+	end
+
+	it "Uso del modulo enumerable para lista de valoraciones 3" do
+		nodo_aux = Struct::Nodo.new(@val1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val3, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.max).to eq(@val3)
+		expect(lista.min).to eq(@val1)
+	end
+
+	it "Uso del modulo enumerable para lista de valoraciones 4" do
+		nodo_aux = Struct::Nodo.new(@val1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@val3, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.sort).to eq([@val1, @val2, @val3])
+	end
+
 end
 
