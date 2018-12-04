@@ -204,7 +204,7 @@ RSpec.describe "Pruebas para la parte de herencia" do
 	end
 
 	it "Comprobacion de clases" do
-		##puts @paraConsulta.class
+		#puts @paraConsulta.class
 		#puts @paciente1.class
 		#puts @valNut.class
 		#puts Object.class
@@ -267,3 +267,25 @@ RSpec.describe "Pruebas para la parte de herencia" do
 	end
 
 end
+
+RSpec.describe "Pruebas de la lista" do
+
+	before :each do
+		@etiqueta1 = InformacionNutricional.new("CocaCola", 3.3, [180.0, 42.0], 0.0, 0.0, 10.6, 10.6, 0.0, 0.0)
+		@etiqueta2 = InformacionNutricional.new("Salchichas enlatadas", 1.25, [755.0, 181.0], 13.0, 4.9, 7.1, 0.5, 9.0, 2.2)
+		@etiqueta3 = InformacionNutricional.new("Millo", 1.3, [256.0, 61.0], 0.1, 22.0, 2.6, 3.0, 0.53, 1.0)
+		@etiqueta4 = InformacionNutricional.new("Boloniesa", 3.0, [642.0, 154.0], 10.0, 1.9, 11.4, 9.6, 3.8, 1.4)
+	end
+
+	it "Uso del modulo Comparable en etiquetas de inf. nutricional" do
+		expect(@etiqueta3<@etiqueta4).to be(true)
+		expect(@etiqueta3<=@etiqueta4).to be(true)
+		expect(@etiqueta3==@etiqueta4).to be(false)
+		expect(@etiqueta4==@etiqueta4).to be(true)
+		expect(@etiqueta3>@etiqueta4).to be(false)
+		expect(@etiqueta3>=@etiqueta4).to be(false)
+		expect(@etiqueta2.between?(@etiqueta3, @etiqueta4)).to be(true)
+	end
+
+end
+

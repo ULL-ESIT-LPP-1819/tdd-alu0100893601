@@ -1,5 +1,7 @@
 class InformacionNutricional
 
+	include Comparable
+
 	attr_accessor :nombre, :porciones, :valorenergetico, :grasa, :grasasaturada, :hidratos, :azucar, :proteinas, :sal, :IR
 
 	def initialize (name, portions, energeticValue, fat, saturedFat, carbohydrates, sugar, protein, salt)
