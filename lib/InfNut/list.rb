@@ -1,8 +1,11 @@
 require_relative "infnutricional.rb"
+require_relative "valoracionnutricional.rb"
 
 Struct.new("Nodo", :dato, :sig, :ant)
 
 class List
+
+	include Enumerable
 
 	attr_accessor :head, :tail, :actual, :size
 
@@ -18,14 +21,19 @@ class List
 			@tail = nodito
 			@actual = nodito
 			@size = 1
-		elsif (nodito.is_a?InformacionNutricional)
+		elsif(nodito.is_a?InformacionNutricional)
+			@head = Struct::Nodo.new(nodito ,nil, nil)
+			@tail = @head
+			@actual = @head
+			@size = 1
+		elsif(nodito.is_a?ValoracionNutricional)
 			@head = Struct::Nodo.new(nodito ,nil, nil)
 			@tail = @head
 			@actual = @head
 			@size = 1
 		end
 	end
-
+	
 	def insertarHead (nodito)
 		if(nodito.is_a?Struct::Nodo)
 			if (@size == 0)

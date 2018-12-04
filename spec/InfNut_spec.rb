@@ -291,9 +291,6 @@ RSpec.describe "Pruebas de los modulos" do
 	end
 
 	it "Uso del modulo Comparable en valoracion nutricional" do
-		puts @val1.calcular_imc
-		puts @val2.calcular_imc
-		puts @val3.calcular_imc
 		expect(@val1<@val2).to be(true)
 		expect(@val1<=@val2).to be(true)
 		expect(@val2==@val2).to be(true)
@@ -301,6 +298,59 @@ RSpec.describe "Pruebas de los modulos" do
 		expect(@val3>@val1).to be(true)
 		expect(@val3>=@val2).to be(true)
 		expect(@val2.between?(@val1, @val3)).to be(true)
+	end
+
+	it "Uso del modulo enumerable para lista de etiquetas 1" do
+		nodo_aux = Struct::Nodo.new(@etiqueta1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta3, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta4, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.collect {|x| x.nombre}).to eq(["Boloniesa", "Millo", "Salchichas enlatadas", "CocaCola"])
+	end
+
+	it "Uso del modulo enumerable para lista de etiquetas 2" do
+		nodo_aux = Struct::Nodo.new(@etiqueta1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta3, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta4, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.select {|x| x.nombre == "Millo"}).to eq([@etiqueta3])
+	end
+
+	it "Uso del modulo enumerable para lista de etiquetas 3" do
+		nodo_aux = Struct::Nodo.new(@etiqueta1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta3, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta4, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.max).to eq(@etiqueta4)
+		expect(lista.min).to eq(@etiqueta3)
+	end
+
+	it "Uso del modulo enumerable para lista de etiquetas 4" do
+		nodo_aux = Struct::Nodo.new(@etiqueta1, nil, nil)
+		lista = List.new(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta2, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta3, nil, nil)
+		lista.insertarHead(nodo_aux)
+		nodo_aux = Struct::Nodo.new(@etiqueta4, nil, nil)
+		lista.insertarHead(nodo_aux)
+
+		expect(lista.sort).to eq([@etiqueta3, @etiqueta1, @etiqueta2, @etiqueta4])
 	end
 
 end

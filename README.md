@@ -1,4 +1,4 @@
-# Prac 6..8: Lista doble-enlazada de Pacientes con Valoración Nutricional
+# Prac 6..9: Lista doble-enlazada de Pacientes con Valoración Nutricional con modulos
 
 Author: Sergio Delgado Lopez (alu0100893601@ull.edu.es)
 
