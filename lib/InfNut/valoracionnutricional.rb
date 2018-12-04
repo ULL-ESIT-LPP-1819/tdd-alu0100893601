@@ -19,7 +19,7 @@ class ValoracionNutricional
 	end
 
 	def to_s
-		"Nombre: #{@nombre}, #{@edad}"
+		"#{@nombre}"
 	end
 
 	def calcular_imc
