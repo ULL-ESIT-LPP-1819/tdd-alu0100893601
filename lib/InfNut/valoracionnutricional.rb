@@ -14,7 +14,9 @@ class ValoracionNutricional
 		@pliegues = plieg
 	end
 
-	
+	def <=> (other)
+		calcular_imc <=> other.calcular_imc
+	end
 
 	def to_s
 		"Nombre: #{@nombre}, #{@edad}"
