@@ -1,5 +1,5 @@
 require "spec_helper"
-#require_relative "../lib/InfNut/infnutricional.rb"
+require_relative "../lib/InfNut/menudietetico.rb"
 require_relative "../lib/InfNut/list.rb"
 require_relative "../lib/InfNut/paciente.rb"
 
@@ -400,3 +400,55 @@ RSpec.describe "Pruebas de los modulos" do
 
 end
 
+RSpec.describe "Pruebas de la practica 10" do
+
+	before :each do
+		@val1 = ValoracionNutricional.new("ManoloGlez", 30, "masculino", 60, 1.68, [[35.5, 35.1], [85.3, 86.6], [94.5, 94.6]], [[21, 22, 21], [10, 12, 11], [7, 8, 7], [37, 36, 35]])
+		@val2 = ValoracionNutricional.new("PedroLuis", 35, "masculino", 65, 1.70, [[37.5, 37.1], [87.3, 88.6], [96.5, 96.6]], [[23, 25, 23], [12, 14, 13], [9, 10, 9], [39, 38, 37]])
+		@val3 = ValoracionNutricional.new("RaulHdez", 40, "masculino", 70, 1.72, [[39.5, 39.1], [89.3, 90.6], [98.5, 98.6]], [[25, 27, 25], [14, 16, 15], [11, 12, 11], [41, 40, 39]])
+		@val4 = ValoracionNutricional.new("JonNieve", 45, "masculino", 75, 1.74, [[42.5, 42.1], [92.3, 93.6], [101.5, 101.6]], [[27, 29, 27], [16, 18, 17], [13, 14, 13], [43, 42, 41]])
+		@val5 = ValoracionNutricional.new("OptimusPrime", 50, "femenino", 80, 1.76, [[45.5, 45.1], [95.3, 96.6], [104.5, 104.6]], [[29, 32, 29], [17, 20, 19], [15, 17, 15], [45, 45, 44]])
+	end
+
+	it "Prueba del menu" do
+
+		puts "---------------------------------------------"
+		menusito = MenuDietetico.new(@val1, "Reposo")
+		result = menusito.calcular_menu
+		puts "Gasto a satisfacer: #{menusito.get.round}"
+		puts result
+		expect(result).to eq(["Mayonesa, 561.0", "Pimientos, 33.0"])
+
+		puts "---------------------------------------------"
+		menusito = MenuDietetico.new(@val2, "Actividad ligera")
+		result = menusito.calcular_menu
+		puts menusito.get.round
+		puts result
+		expect(result).to eq(["Mayonesa, 561.0", "Pimientos, 33.0", "CocaCola, 42.0", "Millo, 61.0"])
+
+		puts "---------------------------------------------"
+		menusito = MenuDietetico.new(@val3, "Actividad moderada")
+		result = menusito.calcular_menu
+		puts "Gasto a satisfacer: #{menusito.get.round}"
+		puts result
+		expect(result).to eq(["Mayonesa, 561.0", "Colacao, 377.0"])
+
+		puts "---------------------------------------------"
+		menusito = MenuDietetico.new(@val4, "Actividad intentsa")
+		result = menusito.calcular_menu
+		puts "Gasto a satisfacer: #{menusito.get.round}"
+		puts result
+		expect(result).to eq(["Mayonesa, 561.0", "Pimientos, 33.0", "CocaCola, 42.0", "Millo, 61.0", "Sal, 0.0", "Limon, 23.0"])
+		
+		puts "---------------------------------------------"
+		menusito = MenuDietetico.new(@val5, "Reposo")
+		result = menusito.calcular_menu
+		puts "Gasto a satisfacer: #{menusito.get.round}"
+		puts result
+		expect(result).to eq(["Mayonesa, 561.0", "Pimientos, 33.0"])
+		puts "---------------------------------------------"
+
+
+	end
+
+end
