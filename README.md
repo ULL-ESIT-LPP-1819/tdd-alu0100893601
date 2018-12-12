@@ -8,6 +8,12 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 My gem will work with nutritional information
 
+TOOLS:
+Github
+Travis
+Guardfile
+Etc
+
 ## Installation
 
 Add this line to your application's Gemfile:
