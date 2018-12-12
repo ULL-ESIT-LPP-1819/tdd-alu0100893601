@@ -422,7 +422,7 @@ RSpec.describe "Pruebas de la practica 10" do
 		puts "---------------------------------------------"
 		menusito = MenuDietetico.new(@val2, "Actividad ligera")
 		result = menusito.calcular_menu
-		puts menusito.get.round
+		puts "Gasto a satisfacer: #{menusito.get.round}"
 		puts result
 		expect(result).to eq(["Mayonesa, 561.0", "Pimientos, 33.0", "CocaCola, 42.0", "Millo, 61.0"])
 
